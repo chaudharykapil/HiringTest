@@ -14,9 +14,6 @@ def validate_id(id: str):
     return ObjectId(id)
 
 
-@routes.get("/")
-def Hello():
-    return "hi"
 
 @routes.get("/students",response_model=List[StudentResponse],status_code=200)
 def get_all_students(country:Optional[str] = Query(None),age:Optional[int] = Query(None)):
