@@ -7,7 +7,7 @@ app = FastAPI(
     description="An API for managing student records",
     version="1.0.0"
 )
-app.include_router(student_routes)
+app.include_router(student_routes,prefix="/api")
 
 if __name__ == '__main__':
     
