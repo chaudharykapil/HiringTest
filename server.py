@@ -10,3 +10,8 @@ app = FastAPI(
 app.include_router(student_routes)
 
 
+if __name__ == '__main__':
+    import uvicorn
+    uvicorn.run(app)
+
+
