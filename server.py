@@ -1,5 +1,5 @@
 from  fastapi import FastAPI
-
+import uvicorn
 from api.routes.routes import routes as student_routes
 
 app = FastAPI(
@@ -9,7 +9,9 @@ app = FastAPI(
 )
 app.include_router(student_routes)
 
-
+if __name__ == '__main__':
+    
+    uvicorn.run(app)
 
 
 
