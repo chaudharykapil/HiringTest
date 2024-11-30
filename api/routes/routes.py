@@ -13,7 +13,9 @@ def validate_id(id: str):
         raise HTTPException(status_code=400, detail="Invalid ID format")
     return ObjectId(id)
 
-
+@routes.get("/")
+def hello():
+    return JSONResponse({},status_code=200)
 
 @routes.get("/students",response_model=List[StudentResponse],status_code=200)
 def get_all_students(country:Optional[str] = Query(None),age:Optional[int] = Query(None)):
