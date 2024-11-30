@@ -28,7 +28,6 @@ def get_all_students(country:Optional[str] = Query(None),age:Optional[int] = Que
     
     allstudents = db.students.find(querydata)
     data = [{"name":student["name"],"age":student["age"]} for student in allstudents.to_list()]
-    print(data)
     return JSONResponse({"data":data},status_code=200)
 
 @routes.post("/students",status_code=201,response_model=dict)
@@ -49,7 +48,6 @@ def get_student(id:str = Path(...)):
         raise HTTPException(status_code=404, detail="Student not found")
     
     data = {"name":student["name"],"age":student["age"],"address":student["address"]}
-    print(student)
     return JSONResponse(data,status_code=200)
 
 
